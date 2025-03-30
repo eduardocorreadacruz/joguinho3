@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrida Infinita 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Menu Principal -->
+    <div id="menu">
+        <div class="menu-content">
+            <h1>Corrida Infinita 3D</h1>
+            <p class="menu-subtitle">Escolha seu carro e domine a pista</p>
+            
+            <div class="menu-buttons">
+                <button id="selecionar-carro" class="menu-btn">Selecionar Carro</button>
+                <button id="iniciar-jogo" class="menu-btn" disabled>Iniciar Corrida</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Seleção de Carros -->
+    <div id="car-selection">
+        <div class="car-selection-container">
+            <div class="car-selection-header">
+                <h2>ESCOLHA SEU CARRO</h2>
+                <p>Selecione o veículo que combina com seu estilo de pilotagem</p>
+            </div>
+            
+            <div class="car-grid">
+                <div class="car-item selected" data-car="car1.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Esportivo">
+                    <h3>Falcão GT</h3>
+                    <p>Velocidade: 320km/h</p>
+                </div>
+                
+                <div class="car-item" data-car="car2.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079011.png" alt="Clássico">
+                    <h3>Vintage Roadster</h3>
+                    <p>Velocidade: 280km/h</p>
+                </div>
+                
+                <div class="car-item" data-car="car3.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079156.png" alt="Futurista">
+                    <h3>Nebula X</h3>
+                    <p>Velocidade: 350km/h</p>
+                </div>
+                
+                <div class="car-item" data-car="car4.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079139.png" alt="SUV">
+                    <h3>Mountain Raider</h3>
+                    <p>Velocidade: 250km/h</p>
+                </div>
+                
+                <div class="car-item" data-car="car5.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079084.png" alt="Polícia">
+                    <h3>Interceptor</h3>
+                    <p>Velocidade: 300km/h</p>
+                </div>
+                
+                <div class="car-item" data-car="car6.glb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079169.png" alt="Tunado">
+                    <h3>Street Demon</h3>
+                    <p>Velocidade: 290km/h</p>
+                </div>
+            </div>
+            
+            <div class="car-selection-actions">
+                <button id="confirmar-carro" class="menu-btn confirm-btn">Confirmar</button>
+                <button id="cancelar-selecao" class="menu-btn close-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jogo -->
+    <div id="game-container"></div>
+    
+    <!-- Elementos do jogo -->
+    <div id="velocimetro">Velocidade: 0 km/h</div>
+    <div id="pontuacao">Pontuação: 0</div>
+    <div id="fase"></div>
+    
+    <!-- Tela de Game Over -->
+    <div id="game-over">
+        <div class="game-over-content">
+            <h2>Game Over</h2>
+            <p>Sua corrida chegou ao fim!</p>
+            <div id="pontuacao-final">Pontuação: 0</div>
+            <div class="game-over-buttons">
+                <button id="recomecar-jogo" class="game-over-btn">Jogar Novamente</button>
+                <button id="voltar-menu" class="game-over-btn">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Áudio elements -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/hypnotic_puzzle.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="crash-sound">
+        <source src="assets/audio/crash_sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="engine-sound" loop>
+        <source src="assets/audio/car_engine.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="phase-sound">
+        <source src="assets/audio/phase_complete.mp3" type="audio/mpeg">
+    </audio>
+        <audio id="catSound" src="assets/audio/horn2.mp3" type="audio/mpeg"></audio>
+</body> 
+</html>
