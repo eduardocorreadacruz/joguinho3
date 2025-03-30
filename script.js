@@ -188,10 +188,7 @@ function loadPistaModelo() { // Função para carregar o modelo da pista
             segmentosPista.push(pistaModelo); // Adiciona o modelo da pista ao array de segmentos
             scene.add(pistaModelo); // Adiciona o modelo da pista à cena
         },
-        undefined, // Função de callback de progresso
-        (error) => { // Função de callback de erro
-            console.error('Erro ao carregar pista.glb:', error); // Exibe um erro no console
-        }
+        
     );
 }
 
@@ -213,10 +210,8 @@ function loadCarModel(carModel) { // Função para carregar o modelo do carro
             car.position.set(0, 0.5, PLAYER_START_Z); // Define a posição inicial do carro
             scene.add(car); // Adiciona o carro à cena
         },
-        undefined, // Função de callback de progresso
-        (error) => { // Função de callback de erro
-            console.error('Erro ao carregar modelo do carro:', error); // Exibe um erro no console
-        }
+         // Função de callback de progresso
+        
     );
 }
 
@@ -310,10 +305,7 @@ function spawnCar(xPos, zPos, isOppositeDirection, lane) { // Função para gera
                 trafficCar.rotation.y = Math.PI; // Rotaciona o carro de tráfego em 180 graus
             }
         },
-        undefined, // Função de callback de progresso
-        (error) => { // Função de callback de erro
-            console.error('Erro ao carregar carro de tráfego:', error); // Exibe um erro no console
-        }
+        
     );
 }
 
