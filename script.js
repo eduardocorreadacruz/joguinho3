@@ -180,7 +180,7 @@ function setupScene() { // Função para configurar a cena 3D
 
 function loadPistaModelo() { // Função para carregar o modelo da pista
     const loader = new THREE.GLTFLoader(); // Cria um novo carregador de modelos GLTF
-    const pistaPath = 'assets/3D_Models/pista.glb'; // Caminho do modelo da pista
+    const pistaPath = './assets/3D_Models/pista.glb'; // Caminho do modelo da pista
 
     loader.load(pistaPath, // Carrega o modelo da pista
         (gltf) => { // Função de callback de sucesso
@@ -197,7 +197,7 @@ function loadPistaModelo() { // Função para carregar o modelo da pista
 
 function loadCarModel(carModel) { // Função para carregar o modelo do carro
     const loader = new THREE.GLTFLoader(); // Cria um novo carregador de modelos GLTF
-    const carPath = `assets/3D_Models/${carModel}`; // Caminho do modelo do carro
+    const carPath = `./assets/3D_Models/${carModel}`; // Caminho do modelo do carro
 
     loader.load(carPath, // Carrega o modelo do carro
         (gltf) => { // Função de callback de sucesso
@@ -283,7 +283,7 @@ function createTrafficCar() { // Função para criar um carro de tráfego
 function spawnCar(xPos, zPos, isOppositeDirection, lane) { // Função para gerar um carro de tráfego
     const carModels = ['car2.glb', 'car3.glb', 'car4.glb', 'car5.glb', 'car6.glb']; // Array de modelos de carros de tráfego
     const randomCarModel = carModels[Math.floor(Math.random() * carModels.length)]; // Seleciona um modelo de carro aleatório
-    const carPath = `assets/3D_Models/${randomCarModel}`; // Caminho do modelo do carro de tráfego
+    const carPath = `./assets/3D_Models/${randomCarModel}`; // Caminho do modelo do carro de tráfego
 
     const loader = new THREE.GLTFLoader(); // Cria um novo carregador de modelos GLTF
     loader.load(carPath, // Carrega o modelo do carro de tráfego
